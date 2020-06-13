@@ -1,0 +1,50 @@
+body{
+    background: aliceblue;
+}
+
+.catname{
+    font-size: 32px;
+    padding: 3px;
+}
+
+.catdesc{
+    padding: 3px;
+    margin-bottom:20px;
+    font-style: oblique;
+    font-size:16px;
+}
+
+.catwrap{
+    margin-left: auto;
+    margin-right: auto;
+    width: 65%;
+    padding-top: 10px;
+}
+
+.category{
+    padding: 3px;
+    border: solid 2px blanchedalmond;
+    background: #efefef;
+    margin-bottom: 15px;
+}
+
+
+.thread{
+    padding: 3px;
+    margin-left: 2px;
+    margin-bottom: 5px;
+    background: #cdcdcd;
+    box-shadow: 3px 3px 6px black;
+}
+.threadauthor{
+    font-size: 12px;
+    padding: 3px;
+    font-style: oblique ;
+}
+.threaddate{
+    font-size: 12px;
+}
+.threadname{
+    font-size: 24px;
+
+}

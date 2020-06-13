@@ -19,6 +19,16 @@ Thread {
     private String threadName;
     private Date creationDate;
     private Long authorId;
+    private Long categoryId;
+
+    public Long getCategorId() {
+        return categoryId;
+    }
+
+    public void setCategorId(Long categorId) {
+        this.categoryId = categorId;
+    }
+
     private boolean threadState;
 
     public boolean isThreadState() {
