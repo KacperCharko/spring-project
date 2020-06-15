@@ -18,7 +18,7 @@ body{
     margin-left: auto;
     margin-right: auto;
     width: 65%;
-    padding-top: 10px;
+    padding-top: 60px;
 }
 
 .category{
@@ -26,6 +26,9 @@ body{
     border: solid 2px blanchedalmond;
     background: #efefef;
     margin-bottom: 15px;
+}
+.category:hover {
+    background-color: gray;
 }
 
 
@@ -36,6 +39,10 @@ body{
     background: #cdcdcd;
     box-shadow: 3px 3px 6px black;
 }
+.thread:hover {
+    background-color: darkgrey;
+}
+
 .threadauthor{
     font-size: 12px;
     padding: 3px;

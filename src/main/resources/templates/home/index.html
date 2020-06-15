@@ -4,9 +4,13 @@
     <title>Getting Started: Serving Web Content</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <link href="../static/css/index.css" th:href="@{/css/index.css}" rel="stylesheet" />
+    <link href="../static/css/main.css" th:href="@{/css/main.css}" rel="stylesheet" />
+
 </head>
 <body>
+<div th:replace="layout/main :: header"></div>
 <div class="catwrap">
+
     <div class="category" th:each="category : ${categories}">
         <div class="catname"><span th:text="${category.category.getCategoryName()}"> Title </span></div>
         <div class="catdesc"><span th:text="${category.category.getCategoryDescription()}"> Author </span></div>

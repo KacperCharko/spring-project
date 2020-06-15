@@ -12,6 +12,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.security.Principal;
 import java.util.ArrayList;
 import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
@@ -54,4 +55,8 @@ public class IndexController {
         return categoryService.createCategory(category);
     }
 
+    @GetMapping("/")
+    public String index(Principal principal, Model model) {
+        return  this.getAllCategories(model);
+    }
 }
