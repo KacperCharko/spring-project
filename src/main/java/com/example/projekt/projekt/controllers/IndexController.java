@@ -3,15 +3,14 @@ package com.example.projekt.projekt.controllers;
 import com.example.projekt.projekt.models.Category;
 import com.example.projekt.projekt.models.Thread;
 import com.example.projekt.projekt.models.helpers.CategoryThreads;
+import com.example.projekt.projekt.models.helpers.CategoryModel;
 import com.example.projekt.projekt.models.helpers.ThreadViewModel;
 import com.example.projekt.projekt.service.CategoryService;
 import com.example.projekt.projekt.service.ThreadService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.ModelAndView;
 
 import java.security.Principal;
 import java.util.ArrayList;
@@ -47,7 +46,7 @@ public class IndexController {
 
         model.addAttribute("categories",categoryThreads);
         model.addAttribute("choosenThread", new ThreadViewModel());
-        model.addAttribute("xd", categories);
+        model.addAttribute("Cat", new CategoryModel());
 
         return "home/index";
     }
@@ -56,11 +55,11 @@ public class IndexController {
     public String updateSchedulePage(@PathVariable("threadId")Long threadId, Model model) {
         return "home/index";
     }
-
-    @PostMapping("/insert")
-    public ResponseEntity<Category> insertCategory (@RequestBody Category category){
-        return categoryService.createCategory(category);
-    }
+//
+//    @PostMapping("/insert")
+//    public ResponseEntity<Category> insertCategory (@RequestBody Category category){
+//        return categoryService.createCategory(category);
+//    }
 
     @GetMapping("/")
     public String index(Principal principal, Model model) {

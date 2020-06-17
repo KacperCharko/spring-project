@@ -1,9 +1,9 @@
 <!DOCTYPE HTML>
 <html xmlns="http://www.w3.org/1999/xhtml"
-        xmlns:th="http://www.thymeleaf.org"
-      xmlns:h="http://java.sun.com/jsf/html">
+        xmlns:th="http://www.thymeleaf.org">
 
 <head>
+
     <title>Getting Started: Serving Web Content</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <link href="../static/css/index.css" th:href="@{/css/index.css}" rel="stylesheet" />
@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
-
+<button id="myBtn" type=submit class="btn1"><i class="fa fa-plus"></i> nowa kategoria </button>
 <div th:replace="layout/main :: header"></div>
 <div class="catwrap">
     <div class="category" th:each="category : ${categories}">
@@ -26,11 +26,70 @@
                 <div class="threadname"><span th:text="${thread.getThreadName()}"></span> </div>
                 <div class="threaddate"><span th:text="${thread.getCreationDate()}"></span> </div>
                 <div class="threadauthor"><span th:text="${thread.getAuthorId()}"></span> </div>
+                <div class="del">
+                <a  th:href="@{/thread/delete/{categoryId} (categoryId=${thread.getThreadId()})}" >
+                    <span class="deltxt" >usuń</span>
+                </a>
+                    <a  th:href="@{/thread/edit/{categoryId} (categoryId=${thread.getThreadId()})}" >
+                        <span class="deltxt" >edytuj</span>
+                    </a>
+                </div>
             </div>
-        </a>
+            </a>
+
     </div>
     </div>
-    </tbody>
+
 </div>
+
+
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+    <!-- Modal content -->
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <div class="catwrap">
+            <form action="/category/create"  th:object="${Cat}" method="post">
+                <div class="inp">
+                    <label for="catname">Nazwa</label>
+                    <input type="text" id="catname" name="catname"  th:field="*{categoryName}" />
+                </div>
+                <div class="inp">
+                    <label for="catdesc">Opis</label>
+                    <textarea id="catdesc" name="catdesc"  th:field="*{categoryDescription}" />
+                </div>
+                <button type=submit class="btn"><i class="fa fa-check"></i> gotowe </button>
+            </form>
+        </div>
+
+    </div>
+
+</div>
+<script>
+
+    let modal = document.getElementById("myModal");
+
+    let btn = document.getElementById("myBtn");
+
+    let span = document.getElementsByClassName("close")[0];
+
+    btn.onclick = function() {
+        modal.style.display = "block";
+    }
+
+    span.onclick = function() {
+        modal.style.display = "none";
+    }
+
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+
+</script>
+
 </body>
 </html>

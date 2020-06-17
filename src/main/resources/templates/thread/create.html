@@ -16,6 +16,7 @@
 <div class="catwrap">
     <div class="form">
     <form action="/thread/create"  th:object="${model}" method="post">
+        <input hidden type="text" id="idThre" name="idThre" th:value="model.threadId" th:field="*{threadId}" />
         <input hidden type="text" id="idCat" name="idCat" th:value="model.categoryId" th:field="*{categoryId}" />
         <div class="inp">
         <label for="topic">Temat</label>
@@ -26,8 +27,7 @@
         <textarea id="content" name="content"  th:field="*{threadContent}" />
         </div>
         <button type=submit class="btn"><i class="fa fa-check"></i> gotowe</button>
-
-    </form>
+    Z</form>
 </div>
 </div>
 </body>

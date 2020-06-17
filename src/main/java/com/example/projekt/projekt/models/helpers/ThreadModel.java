@@ -2,14 +2,24 @@ package com.example.projekt.projekt.models.helpers;
 
 import com.example.projekt.projekt.models.Category;
 
-public class NewThreadModel {
+public class ThreadModel {
     private Long userId;
     private Long categoryId;
+    private Long threadId;
     private String threadTopic;
     private String threadContent;
+    public Long getThreadId() {
+        return threadId;
+    }
+
+    public void setThreadId(Long threadId) {
+        this.threadId = threadId;
+    }
 
 
-    public NewThreadModel() {
+
+
+    public ThreadModel() {
     }
 
     public Long getUserId() {

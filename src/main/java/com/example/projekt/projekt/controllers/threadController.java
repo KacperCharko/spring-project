@@ -2,7 +2,8 @@ package com.example.projekt.projekt.controllers;
 
 import com.example.projekt.projekt.models.Message;
 import com.example.projekt.projekt.models.Thread;
-import com.example.projekt.projekt.models.helpers.NewThreadModel;
+import com.example.projekt.projekt.models.helpers.CategoryModel;
+import com.example.projekt.projekt.models.helpers.ThreadModel;
 import com.example.projekt.projekt.models.helpers.ThreadViewModel;
 import com.example.projekt.projekt.repository.MessageRepo;
 import com.example.projekt.projekt.service.ThreadService;
@@ -29,17 +30,17 @@ public class ThreadController {
 
     @GetMapping("/show/{threadId}")
     public String showThread(@PathVariable("threadId") Long threadId, Model model) {
-        NewThreadModel newThreadModel = new NewThreadModel();
+        ThreadModel threadModel = new ThreadModel();
         Iterable<Message> messages = messageRepo.findAllByThreadId(threadId);
         Thread thread = threadService.getThreadById(threadId);
 
         if(thread !=null) {
-            newThreadModel.setCategoryId(thread.getCategoryId());
-            newThreadModel.setThreadContent(thread.getThreadContent());
-            newThreadModel.setThreadTopic(thread.getThreadName());
+            threadModel.setCategoryId(thread.getCategoryId());
+            threadModel.setThreadContent(thread.getThreadContent());
+            threadModel.setThreadTopic(thread.getThreadName());
 
             model.addAttribute("msgs", messages);
-            model.addAttribute("thread", newThreadModel);
+            model.addAttribute("thread", threadModel);
             return "thread/thread";
         }
         else
@@ -48,18 +49,37 @@ public class ThreadController {
 
     @GetMapping("new/{categoryId}")
     public String createNewThread(@PathVariable("categoryId") Long categoryId, Model model) {
-        NewThreadModel newThreadModel =new NewThreadModel();
-        newThreadModel.setCategoryId(categoryId);
+        ThreadModel threadModel =new ThreadModel();
+        threadModel.setCategoryId(categoryId);
 
-        model.addAttribute("model", newThreadModel);
+        model.addAttribute("model", threadModel);
         return"thread/create";
     }
 
     @RequestMapping("/create")
-    public String createNewThread(@ModelAttribute(value = "model") NewThreadModel newThreadModel, Model model) {
+    public String createNewThread(@ModelAttribute(value = "model") ThreadModel threadModel, Model model) {
 
-        threadService.createThread(newThreadModel);
+        threadService.createThread(threadModel);
 
         return indexController.getAllCategories(model);
+    }
+    @RequestMapping("/delete/{threadId}")
+    public String deleteThread (@PathVariable(value = "threadId") Long id, Model model){
+        threadService.deleteThread(id);
+        return indexController.getAllCategories(model);
+    }
+
+    @RequestMapping("/edit/{threadId}")
+    public String editThread (@PathVariable(value = "threadId") Long id, Model model){
+        Thread thread = threadService.getThreadById(id);
+
+        ThreadModel threadModel =new ThreadModel();
+        threadModel.setCategoryId(thread.getCategoryId());
+        threadModel.setThreadTopic(thread.getThreadName());
+        threadModel.setThreadContent(thread.getThreadContent());
+        threadModel.setThreadId(thread.getThreadId());
+        model.addAttribute("model", threadModel);
+        return"thread/create";
+
     }
 }
