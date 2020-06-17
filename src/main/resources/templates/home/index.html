@@ -8,14 +8,16 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <link href="../static/css/index.css" th:href="@{/css/index.css}" rel="stylesheet" />
     <link href="../static/css/main.css" th:href="@{/css/main.css}" rel="stylesheet" />
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
 
 <div th:replace="layout/main :: header"></div>
 <div class="catwrap">
-
     <div class="category" th:each="category : ${categories}">
+        <a th:href="@{/thread/new/{categoryId} (categoryId=${category.category.getCategoryId()})}" >
+        <button class="btn"><i class="fa fa-plus"></i> Nowy wątek</button>
+        </a>
         <div class="catname"><span th:text="${category.category.getCategoryName()}"> Title </span></div>
         <div class="catdesc"><span th:text="${category.category.getCategoryDescription()}"> Author </span></div>
         <div th:each="thread : ${category.threads}">

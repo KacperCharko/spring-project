@@ -13,10 +13,10 @@ public class ThreadApi {
         this.threadService = threadService;
     }
 
-    @PostMapping("/create")
-    public Thread createNew(@RequestBody Thread thread){
-        return threadService.createThread(thread);
-    }
+//    @PostMapping("/create")
+//    public Thread createNew(@RequestBody Thread thread){
+//        return threadService.createThread(thread);
+//    }
 
 
 }

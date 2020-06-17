@@ -40,7 +40,7 @@ public class IndexController {
         StreamSupport.stream(categories.spliterator(),false)
                 .forEach(category -> {
                     Iterable<Thread> threadsHelper = StreamSupport.stream(threads.spliterator(),false)
-                            .filter(thread -> thread.getCategorId().equals(category.getCategoryId()))
+                            .filter(thread -> thread.getCategoryId().equals(category.getCategoryId()))
                             .collect(Collectors.toList());
                     categoryThreads.add(new CategoryThreads(category,threadsHelper));
                 });

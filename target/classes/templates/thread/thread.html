@@ -8,25 +8,27 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <link href="../static/css/index.css" th:href="@{/css/index.css}" rel="stylesheet" />
     <link href="../static/css/main.css" th:href="@{/css/main.css}" rel="stylesheet" />
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
 
 <div th:replace="layout/main :: header"></div>
 <div class="catwrap">
 
+    <div class="post">
+        <div class="catname"><span th:text="${thread.getThreadTopic()}"> topic </span></div>
+        <div class="catname"><span th:text="${thread.getUserId()}"> Author </span></div>
+
+    </div>
+
+    <div class="category">
+        <div class="catname"><span th:text="${thread.getUserId()}"> Author </span></div>
+        <div class="catdesc"><span th:text="${thread.getThreadContent()}"> content </span></div>
+    </div>
+
     <div class="category" th:each="msg : ${msgs}">
         <div class="catname"><span th:text="${msg.getAuthorId()}"> Author </span></div>
         <div class="catdesc"><span th:text="${msg.getMessageContent()}"> Msg </span></div>
-<!--        <div th:each="thread : ${category.threads}">-->
-<!--            <a th:href="@{/thread/show/{threadId} (threadId=${thread.getThreadId()})}" >-->
-<!--                <div class="thread" >-->
-<!--                    <div class="threadname"><span th:text="${thread.getThreadName()}"></span> </div>-->
-<!--                    <div class="threaddate"><span th:text="${thread.getCreationDate()}"></span> </div>-->
-<!--                    <div class="threadauthor"><span th:text="${thread.getAuthorId()}"></span> </div>-->
-<!--                </div>-->
-<!--            </a>-->
-<!--        </div>-->
     </div>
     </tbody>
 </div>

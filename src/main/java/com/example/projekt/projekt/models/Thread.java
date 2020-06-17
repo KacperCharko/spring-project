@@ -17,29 +17,14 @@ Thread {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long threadId;
     private String threadName;
+    private String threadContent;
     private Date creationDate;
     private Long authorId;
     private Long categoryId;
-
-    public Long getCategorId() {
-        return categoryId;
-    }
-
-    public void setCategorId(Long categorId) {
-        this.categoryId = categorId;
-    }
-
     private boolean threadState;
 
-    public boolean isThreadState() {
-        return threadState;
+    public Thread() {
     }
-
-    public void setThreadState(boolean threadState) {
-        this.threadState = threadState;
-    }
-
-    public Thread(){}
 
     public Long getThreadId() {
         return threadId;
@@ -57,6 +42,14 @@ Thread {
         this.threadName = threadName;
     }
 
+    public String getThreadContent() {
+        return threadContent;
+    }
+
+    public void setThreadContent(String threadContent) {
+        this.threadContent = threadContent;
+    }
+
     public Date getCreationDate() {
         return creationDate;
     }
@@ -71,5 +64,21 @@ Thread {
 
     public void setAuthorId(Long authorId) {
         this.authorId = authorId;
+    }
+
+    public Long getCategoryId() {
+        return categoryId;
+    }
+
+    public void setCategoryId(Long categoryId) {
+        this.categoryId = categoryId;
+    }
+
+    public boolean isThreadState() {
+        return threadState;
+    }
+
+    public void setThreadState(boolean threadState) {
+        this.threadState = threadState;
     }
 }
