@@ -16,10 +16,10 @@ import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 public class    SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http
+        http.csrf().disable()
                 .authorizeRequests()
-                .antMatchers("/", "/home").permitAll()
-                .anyRequest().authenticated()
+                .antMatchers().permitAll()
+                .anyRequest().permitAll()
                 .and()
                 .formLogin()
                 .loginPage("/login")
@@ -27,6 +27,7 @@ public class    SecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .logout()
                 .permitAll();
+
     }
 
     @Bean

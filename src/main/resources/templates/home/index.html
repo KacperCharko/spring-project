@@ -1,5 +1,8 @@
 <!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:th="http://www.thymeleaf.org"
+      xmlns:h="http://java.sun.com/jsf/html">
+
 <head>
     <title>Getting Started: Serving Web Content</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -8,17 +11,21 @@
 
 </head>
 <body>
+
 <div th:replace="layout/main :: header"></div>
 <div class="catwrap">
 
     <div class="category" th:each="category : ${categories}">
         <div class="catname"><span th:text="${category.category.getCategoryName()}"> Title </span></div>
         <div class="catdesc"><span th:text="${category.category.getCategoryDescription()}"> Author </span></div>
-
-    <div class="thread" th:each="thread : ${category.threads}">
-        <div class="threadname"><span th:text="${thread.getThreadName()}"></span> </div>
-        <div class="threaddate"><span th:text="${thread.getCreationDate()}"></span> </div>
-        <div class="threadauthor"><span th:text="${thread.getAuthorId()}"></span> </div>
+        <div th:each="thread : ${category.threads}">
+            <a th:href="@{/thread/show/{threadId} (threadId=${thread.getThreadId()})}" >
+            <div class="thread" >
+                <div class="threadname"><span th:text="${thread.getThreadName()}"></span> </div>
+                <div class="threaddate"><span th:text="${thread.getCreationDate()}"></span> </div>
+                <div class="threadauthor"><span th:text="${thread.getAuthorId()}"></span> </div>
+            </div>
+        </a>
     </div>
     </div>
     </tbody>

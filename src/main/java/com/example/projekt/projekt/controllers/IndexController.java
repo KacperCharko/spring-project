@@ -3,6 +3,7 @@ package com.example.projekt.projekt.controllers;
 import com.example.projekt.projekt.models.Category;
 import com.example.projekt.projekt.models.Thread;
 import com.example.projekt.projekt.models.helpers.CategoryThreads;
+import com.example.projekt.projekt.models.helpers.ThreadViewModel;
 import com.example.projekt.projekt.service.CategoryService;
 import com.example.projekt.projekt.service.ThreadService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -45,8 +46,14 @@ public class IndexController {
                 });
 
         model.addAttribute("categories",categoryThreads);
+        model.addAttribute("choosenThread", new ThreadViewModel());
         model.addAttribute("xd", categories);
 
+        return "home/index";
+    }
+
+    @GetMapping("/thread/{threadId}")
+    public String updateSchedulePage(@PathVariable("threadId")Long threadId, Model model) {
         return "home/index";
     }
 

@@ -3,11 +3,9 @@ package com.example.projekt.projekt.api;
 import com.example.projekt.projekt.models.Message;
 import com.example.projekt.projekt.service.MessageService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.servlet.function.EntityResponse;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
 
 @RestController
 @RequestMapping("/api/message")
@@ -20,6 +18,9 @@ public class MessageApi {
         this.messageService = messageService;
     }
 
-
+    @PostMapping
+    public ResponseEntity<Message> createMessage(@RequestBody Message message){
+        return messageService.createMsg(message);
+    }
 
 }
