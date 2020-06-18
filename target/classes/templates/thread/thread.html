@@ -11,11 +11,12 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
-
+<input hidden type="text" th:value="*{threadId}" th:field="*{threadId}" />
 <div th:replace="layout/main :: header"></div>
 <div class="catwrap">
 
     <div class="post">
+
         <div class="catname"><span th:text="${thread.getThreadTopic()}"> topic </span></div>
         <div class="catname"><span th:text="${thread.getUserId()}"> Author </span></div>
 
@@ -30,7 +31,20 @@
         <div class="catname"><span th:text="${msg.getAuthorId()}"> Author </span></div>
         <div class="catdesc"><span th:text="${msg.getMessageContent()}"> Msg </span></div>
     </div>
-    </tbody>
+    <div class="catwrap">
+        <div class="form">
+            <form action="/message/new/"  th:object="${formModel}" method="post">
+                <input hidden type="text" th:value="authorId" th:field="*{authorId}" />
+                <input  hidden type="text"  th:value="threadId" th:field="*{threadId}" />
+                <div class="inp">
+                    <label for="topic">Treść wiadomości</label>
+                    <input type="text" id="topic" name="topic"  th:field="*{messageContent}" />
+                </div>
+                <button type=submit class="btn"><i class="fa fa-check"></i> dodaj komentarz</button>
+            </form>
+        </div>
+
+</div>
 </div>
 </body>
 </html>

@@ -1,10 +1,14 @@
 package com.example.projekt.projekt.controllers;
 
+import com.example.projekt.projekt.models.Category;
+import com.example.projekt.projekt.models.Thread;
 import com.example.projekt.projekt.models.helpers.CategoryModel;
+import com.example.projekt.projekt.models.helpers.ThreadModel;
 import com.example.projekt.projekt.service.CategoryService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
@@ -24,10 +28,24 @@ public class CategoryController {
         return indexController.getAllCategories(model);
     }
 
-    @RequestMapping("/delete")
-    public String deleteCategory (@ModelAttribute(value = "Cat") CategoryModel categoryModel, Model model){
-        categoryService.createCategory(categoryModel);
 
+    @RequestMapping("/delete/{categoryId}")
+    public String deleteThread (@PathVariable(value = "categoryId") Long id, Model model){
+        categoryService.deleteCategoryById(id);
         return indexController.getAllCategories(model);
+    }
+
+
+    @RequestMapping("/edit/{categoryId}")
+    public String editThread (@PathVariable(value = "categoryId") Long id, Model model){
+        Category category = categoryService.getCategoryById(id);
+
+        CategoryModel categoryModel =new CategoryModel();
+        categoryModel.setCategoryId(category.getCategoryId());
+        categoryModel.setCategoryName(category.getCategoryName());
+        categoryModel.setCategoryDescription(category.getCategoryDescription());
+        model.addAttribute("model", categoryModel);
+        return"category/edit";
+
     }
 }

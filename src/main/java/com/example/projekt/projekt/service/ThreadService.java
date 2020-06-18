@@ -29,10 +29,12 @@ public class ThreadService {
 
     public Thread createThread(ThreadModel threadModel) {
         Thread thread = new Thread();
-        if(threadModel.getThreadId()!=0)
+        if(threadModel.getThreadId()!=null)
             thread.setThreadId(threadModel.getThreadId());
         thread.setAuthorId(1L);
+        if(threadModel.getCategoryId()!=null)
         thread.setCategoryId(threadModel.getCategoryId());
+
         thread.setThreadContent(threadModel.getThreadContent());
         thread.setThreadName(threadModel.getThreadTopic());
         thread.setCreationDate(new Date());

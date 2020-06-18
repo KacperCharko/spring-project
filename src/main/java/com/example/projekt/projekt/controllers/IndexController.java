@@ -51,15 +51,7 @@ public class IndexController {
         return "home/index";
     }
 
-    @GetMapping("/thread/{threadId}")
-    public String updateSchedulePage(@PathVariable("threadId")Long threadId, Model model) {
-        return "home/index";
-    }
-//
-//    @PostMapping("/insert")
-//    public ResponseEntity<Category> insertCategory (@RequestBody Category category){
-//        return categoryService.createCategory(category);
-//    }
+
 
     @GetMapping("/")
     public String index(Principal principal, Model model) {

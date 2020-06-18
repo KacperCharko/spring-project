@@ -17,7 +17,7 @@
     <div class="form">
     <form action="/thread/create"  th:object="${model}" method="post">
         <input hidden type="text" id="idThre" name="idThre" th:value="model.threadId" th:field="*{threadId}" />
-        <input hidden type="text" id="idCat" name="idCat" th:value="model.categoryId" th:field="*{categoryId}" />
+        <input th:if="${!model.categoryModels.iterator().hasNext()}"  hidden type="text"  th:value="model.ccategoryId" th:field="*{categoryId}" />
         <div class="inp">
         <label for="topic">Temat</label>
         <input type="text" id="topic" name="topic"  th:field="*{threadTopic}" />
@@ -26,8 +26,14 @@
         <label for="content">Tresc</label>
         <textarea id="content" name="content"  th:field="*{threadContent}" />
         </div>
+        <select th:if="${model.categoryModels.iterator().hasNext()}" th:field="*{categoryId}">
+            <option th:each="cat : ${model.categoryModels}"
+                    th:value="${cat.categoryId}"
+                    th:utext="${cat.categoryName}"/>
+        </select>
+
         <button type=submit class="btn"><i class="fa fa-check"></i> gotowe</button>
-    Z</form>
+    </form>
 </div>
 </div>
 </body>

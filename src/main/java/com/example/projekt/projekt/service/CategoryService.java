@@ -1,6 +1,7 @@
 package com.example.projekt.projekt.service;
 
 import com.example.projekt.projekt.models.Category;
+import com.example.projekt.projekt.models.Thread;
 import com.example.projekt.projekt.models.helpers.CategoryModel;
 import com.example.projekt.projekt.repository.CategoryRepo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +18,9 @@ public class CategoryService {
 
     public Category createCategory (CategoryModel categoryModel){
         Category category = new Category();
+        if(categoryModel.getCategoryId()!=null){
+            category.setCategoryId(categoryModel.getCategoryId());
+        }
         category.setCategoryName(categoryModel.getCategoryName());
         category.setCategoryDescription(categoryModel.getCategoryDescription());
 
@@ -28,4 +32,11 @@ public class CategoryService {
         return categoryRepo.findAll();
     }
 
+    public Category getCategoryById(Long id) {
+        return categoryRepo.getByCategoryId(id);
+    }
+
+    public void deleteCategoryById(Long id) {
+        categoryRepo.deleteById(id);
+    }
 }
