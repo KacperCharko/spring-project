@@ -46,7 +46,7 @@
     </schema>
     <schema id="14" parent="2" name="dbo">
       <ObjectId>1</ObjectId>
-      <IntrospectionTimestamp>2020-06-17.18:27:10.910</IntrospectionTimestamp>
+      <IntrospectionTimestamp>2020-06-18.14:48:44.760</IntrospectionTimestamp>
       <Current>1</Current>
     </schema>
     <schema id="15" parent="2" name="guest">
@@ -55,43 +55,103 @@
     <schema id="16" parent="2" name="sys">
       <ObjectId>4</ObjectId>
     </schema>
-    <table id="17" parent="14" name="category">
+    <table id="17" parent="14" name="authority">
+      <ObjectId>1605580758</ObjectId>
+      <CreatedTimestamp>2020-06-18.13:39:18.250</CreatedTimestamp>
+      <ModifiedTimestamp>2020-06-18.13:39:18.250</ModifiedTimestamp>
+    </table>
+    <table id="18" parent="14" name="category">
       <ObjectId>1221579390</ObjectId>
       <CreatedTimestamp>2020-06-12.21:32:16.883</CreatedTimestamp>
       <ModifiedTimestamp>2020-06-12.21:32:16.883</ModifiedTimestamp>
     </table>
-    <table id="18" parent="14" name="message">
+    <table id="19" parent="14" name="forum_user">
+      <ObjectId>1477580302</ObjectId>
+      <CreatedTimestamp>2020-06-17.19:42:24.333</CreatedTimestamp>
+      <ModifiedTimestamp>2020-06-17.19:42:24.730</ModifiedTimestamp>
+    </table>
+    <table id="20" parent="14" name="forum_user_roles">
+      <ObjectId>1509580416</ObjectId>
+      <CreatedTimestamp>2020-06-17.19:42:24.430</CreatedTimestamp>
+      <ModifiedTimestamp>2020-06-17.19:42:24.730</ModifiedTimestamp>
+    </table>
+    <table id="21" parent="14" name="message">
       <ObjectId>1253579504</ObjectId>
       <CreatedTimestamp>2020-06-12.21:32:17.210</CreatedTimestamp>
       <ModifiedTimestamp>2020-06-12.21:32:17.210</ModifiedTimestamp>
     </table>
-    <table id="19" parent="14" name="thread">
+    <table id="22" parent="14" name="report">
+      <ObjectId>1637580872</ObjectId>
+      <CreatedTimestamp>2020-06-18.13:39:18.333</CreatedTimestamp>
+      <ModifiedTimestamp>2020-06-18.13:39:18.333</ModifiedTimestamp>
+    </table>
+    <table id="23" parent="14" name="role">
+      <ObjectId>1541580530</ObjectId>
+      <CreatedTimestamp>2020-06-17.19:42:24.547</CreatedTimestamp>
+      <ModifiedTimestamp>2020-06-18.13:39:18.647</ModifiedTimestamp>
+    </table>
+    <table id="24" parent="14" name="roles">
+      <ObjectId>1733581214</ObjectId>
+      <CreatedTimestamp>2020-06-18.13:50:53.923</CreatedTimestamp>
+      <ModifiedTimestamp>2020-06-18.13:50:54.353</ModifiedTimestamp>
+    </table>
+    <table id="25" parent="14" name="thread">
       <ObjectId>1285579618</ObjectId>
       <CreatedTimestamp>2020-06-12.21:32:17.533</CreatedTimestamp>
       <ModifiedTimestamp>2020-06-17.18:26:56.757</ModifiedTimestamp>
     </table>
-    <column id="20" parent="17" name="category_id">
+    <table id="26" parent="14" name="user_roles">
+      <ObjectId>1669580986</ObjectId>
+      <CreatedTimestamp>2020-06-18.13:39:18.497</CreatedTimestamp>
+      <ModifiedTimestamp>2020-06-18.13:50:54.353</ModifiedTimestamp>
+    </table>
+    <column id="27" parent="17" name="id">
+      <Position>1</Position>
+      <DataType>int|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="28" parent="17" name="name">
+      <Position>2</Position>
+      <DataType>varchar(255 char)|0s</DataType>
+    </column>
+    <index id="29" parent="17" name="PK__authorit__3213E83FEEF72576">
+      <Position>1</Position>
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Clustering>1</Clustering>
+      <Unique>1</Unique>
+    </index>
+    <key id="30" parent="17" name="PK__authorit__3213E83FEEF72576">
+      <ObjectId>1621580815</ObjectId>
+      <NameSurrogate>1</NameSurrogate>
+      <CreatedTimestamp>2020-06-18.13:39:18.250</CreatedTimestamp>
+      <ModifiedTimestamp>2020-06-18.13:39:18.250</ModifiedTimestamp>
+      <ColNames>id</ColNames>
+      <UnderlyingIndexName>PK__authorit__3213E83FEEF72576</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <column id="31" parent="18" name="category_id">
       <Position>1</Position>
       <SequenceIdentity>1</SequenceIdentity>
       <DataType>bigint|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="21" parent="17" name="category_description">
+    <column id="32" parent="18" name="category_description">
       <Position>2</Position>
       <DataType>varchar(255 char)|0s</DataType>
     </column>
-    <column id="22" parent="17" name="category_name">
+    <column id="33" parent="18" name="category_name">
       <Position>3</Position>
       <DataType>varchar(255 char)|0s</DataType>
     </column>
-    <index id="23" parent="17" name="PK__category__D54EE9B497992900">
+    <index id="34" parent="18" name="PK__category__D54EE9B497992900">
       <Position>1</Position>
       <NameSurrogate>1</NameSurrogate>
       <ColNames>category_id</ColNames>
       <Clustering>1</Clustering>
       <Unique>1</Unique>
     </index>
-    <key id="24" parent="17" name="PK__category__D54EE9B497992900">
+    <key id="35" parent="18" name="PK__category__D54EE9B497992900">
       <ObjectId>1237579447</ObjectId>
       <NameSurrogate>1</NameSurrogate>
       <CreatedTimestamp>2020-06-12.21:32:16.887</CreatedTimestamp>
@@ -100,40 +160,122 @@
       <UnderlyingIndexName>PK__category__D54EE9B497992900</UnderlyingIndexName>
       <Primary>1</Primary>
     </key>
-    <column id="25" parent="18" name="message_id">
+    <column id="36" parent="19" name="id">
       <Position>1</Position>
       <SequenceIdentity>1</SequenceIdentity>
       <DataType>bigint|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="26" parent="18" name="author_id">
+    <column id="37" parent="19" name="email">
       <Position>2</Position>
-      <DataType>bigint|0s</DataType>
+      <DataType>varchar(255 char)|0s</DataType>
     </column>
-    <column id="27" parent="18" name="creation_date">
+    <column id="38" parent="19" name="password">
       <Position>3</Position>
-      <DataType>datetime2|0s</DataType>
+      <DataType>varchar(255 char)|0s</DataType>
     </column>
-    <column id="28" parent="18" name="message_content">
+    <column id="39" parent="19" name="username">
       <Position>4</Position>
       <DataType>varchar(255 char)|0s</DataType>
     </column>
-    <column id="29" parent="18" name="modification_date">
+    <index id="40" parent="19" name="PK__forum_us__3213E83FFB6E5D96">
+      <Position>1</Position>
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Clustering>1</Clustering>
+      <Unique>1</Unique>
+    </index>
+    <key id="41" parent="19" name="PK__forum_us__3213E83FFB6E5D96">
+      <ObjectId>1493580359</ObjectId>
+      <NameSurrogate>1</NameSurrogate>
+      <CreatedTimestamp>2020-06-17.19:42:24.333</CreatedTimestamp>
+      <ModifiedTimestamp>2020-06-17.19:42:24.333</ModifiedTimestamp>
+      <ColNames>id</ColNames>
+      <UnderlyingIndexName>PK__forum_us__3213E83FFB6E5D96</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <column id="42" parent="20" name="users_id">
+      <Position>1</Position>
+      <DataType>bigint|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="43" parent="20" name="roles_id">
+      <Position>2</Position>
+      <DataType>bigint|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="44" parent="20" name="PK__forum_us__F3E6EB07AE9C986B">
+      <Position>1</Position>
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>users_id
+roles_id</ColNames>
+      <Clustering>1</Clustering>
+      <Unique>1</Unique>
+    </index>
+    <key id="45" parent="20" name="PK__forum_us__F3E6EB07AE9C986B">
+      <ObjectId>1525580473</ObjectId>
+      <NameSurrogate>1</NameSurrogate>
+      <CreatedTimestamp>2020-06-17.19:42:24.430</CreatedTimestamp>
+      <ModifiedTimestamp>2020-06-17.19:42:24.430</ModifiedTimestamp>
+      <ColNames>users_id
+roles_id</ColNames>
+      <UnderlyingIndexName>PK__forum_us__F3E6EB07AE9C986B</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="46" parent="20" name="FK1n3vdgsa3qlem6abrxj992q52">
+      <ObjectId>1589580701</ObjectId>
+      <CreatedTimestamp>2020-06-17.19:42:24.730</CreatedTimestamp>
+      <ModifiedTimestamp>2020-06-17.19:42:24.730</ModifiedTimestamp>
+      <ColNames>users_id</ColNames>
+      <RefTableId>1477580302</RefTableId>
+      <RefTableName>forum_user</RefTableName>
+      <RefKeyName>PK__forum_us__3213E83FFB6E5D96</RefKeyName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <foreign-key id="47" parent="20" name="FKf0eo3w3w7otsq85440l2cvgr3">
+      <ObjectId>1573580644</ObjectId>
+      <CreatedTimestamp>2020-06-17.19:42:24.640</CreatedTimestamp>
+      <ModifiedTimestamp>2020-06-17.19:42:24.640</ModifiedTimestamp>
+      <ColNames>roles_id</ColNames>
+      <RefTableId>1541580530</RefTableId>
+      <RefTableName>role</RefTableName>
+      <RefKeyName>PK__role__3213E83FA10631EF</RefKeyName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <column id="48" parent="21" name="message_id">
+      <Position>1</Position>
+      <SequenceIdentity>1</SequenceIdentity>
+      <DataType>bigint|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="49" parent="21" name="author_id">
+      <Position>2</Position>
+      <DataType>bigint|0s</DataType>
+    </column>
+    <column id="50" parent="21" name="creation_date">
+      <Position>3</Position>
+      <DataType>datetime2|0s</DataType>
+    </column>
+    <column id="51" parent="21" name="message_content">
+      <Position>4</Position>
+      <DataType>varchar(255 char)|0s</DataType>
+    </column>
+    <column id="52" parent="21" name="modification_date">
       <Position>5</Position>
       <DataType>datetime2|0s</DataType>
     </column>
-    <column id="30" parent="18" name="thread_id">
+    <column id="53" parent="21" name="thread_id">
       <Position>6</Position>
       <DataType>bigint|0s</DataType>
     </column>
-    <index id="31" parent="18" name="PK__message__0BBF6EE67D8B2F35">
+    <index id="54" parent="21" name="PK__message__0BBF6EE67D8B2F35">
       <Position>1</Position>
       <NameSurrogate>1</NameSurrogate>
       <ColNames>message_id</ColNames>
       <Clustering>1</Clustering>
       <Unique>1</Unique>
     </index>
-    <key id="32" parent="18" name="PK__message__0BBF6EE67D8B2F35">
+    <key id="55" parent="21" name="PK__message__0BBF6EE67D8B2F35">
       <ObjectId>1269579561</ObjectId>
       <NameSurrogate>1</NameSurrogate>
       <CreatedTimestamp>2020-06-12.21:32:17.243</CreatedTimestamp>
@@ -142,45 +284,127 @@
       <UnderlyingIndexName>PK__message__0BBF6EE67D8B2F35</UnderlyingIndexName>
       <Primary>1</Primary>
     </key>
-    <column id="33" parent="19" name="thread_id">
+    <column id="56" parent="22" name="report_id">
       <Position>1</Position>
       <SequenceIdentity>1</SequenceIdentity>
       <DataType>bigint|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="34" parent="19" name="author_id">
+    <column id="57" parent="22" name="message_id">
       <Position>2</Position>
       <DataType>bigint|0s</DataType>
     </column>
-    <column id="35" parent="19" name="creation_date">
+    <column id="58" parent="22" name="reporter">
+      <Position>3</Position>
+      <DataType>bigint|0s</DataType>
+    </column>
+    <index id="59" parent="22" name="PK__report__779B7C58162830A3">
+      <Position>1</Position>
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>report_id</ColNames>
+      <Clustering>1</Clustering>
+      <Unique>1</Unique>
+    </index>
+    <key id="60" parent="22" name="PK__report__779B7C58162830A3">
+      <ObjectId>1653580929</ObjectId>
+      <NameSurrogate>1</NameSurrogate>
+      <CreatedTimestamp>2020-06-18.13:39:18.337</CreatedTimestamp>
+      <ModifiedTimestamp>2020-06-18.13:39:18.337</ModifiedTimestamp>
+      <ColNames>report_id</ColNames>
+      <UnderlyingIndexName>PK__report__779B7C58162830A3</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <column id="61" parent="23" name="id">
+      <Position>1</Position>
+      <SequenceIdentity>1</SequenceIdentity>
+      <DataType>bigint|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="62" parent="23" name="name">
+      <Position>2</Position>
+      <DataType>varchar(255 char)|0s</DataType>
+    </column>
+    <index id="63" parent="23" name="PK__role__3213E83FA10631EF">
+      <Position>1</Position>
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Clustering>1</Clustering>
+      <Unique>1</Unique>
+    </index>
+    <key id="64" parent="23" name="PK__role__3213E83FA10631EF">
+      <ObjectId>1557580587</ObjectId>
+      <NameSurrogate>1</NameSurrogate>
+      <CreatedTimestamp>2020-06-17.19:42:24.547</CreatedTimestamp>
+      <ModifiedTimestamp>2020-06-17.19:42:24.547</ModifiedTimestamp>
+      <ColNames>id</ColNames>
+      <UnderlyingIndexName>PK__role__3213E83FA10631EF</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <column id="65" parent="24" name="id">
+      <Position>1</Position>
+      <SequenceIdentity>1</SequenceIdentity>
+      <DataType>bigint|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="66" parent="24" name="name">
+      <Position>2</Position>
+      <DataType>varchar(255 char)|0s</DataType>
+    </column>
+    <index id="67" parent="24" name="PK__roles__3213E83FBB816881">
+      <Position>1</Position>
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Clustering>1</Clustering>
+      <Unique>1</Unique>
+    </index>
+    <key id="68" parent="24" name="PK__roles__3213E83FBB816881">
+      <ObjectId>1749581271</ObjectId>
+      <NameSurrogate>1</NameSurrogate>
+      <CreatedTimestamp>2020-06-18.13:50:53.923</CreatedTimestamp>
+      <ModifiedTimestamp>2020-06-18.13:50:53.923</ModifiedTimestamp>
+      <ColNames>id</ColNames>
+      <UnderlyingIndexName>PK__roles__3213E83FBB816881</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <column id="69" parent="25" name="thread_id">
+      <Position>1</Position>
+      <SequenceIdentity>1</SequenceIdentity>
+      <DataType>bigint|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="70" parent="25" name="author_id">
+      <Position>2</Position>
+      <DataType>bigint|0s</DataType>
+    </column>
+    <column id="71" parent="25" name="creation_date">
       <Position>3</Position>
       <DataType>datetime2|0s</DataType>
     </column>
-    <column id="36" parent="19" name="thread_name">
+    <column id="72" parent="25" name="thread_name">
       <Position>4</Position>
       <DataType>varchar(255 char)|0s</DataType>
     </column>
-    <column id="37" parent="19" name="thread_state">
+    <column id="73" parent="25" name="thread_state">
       <Position>5</Position>
       <DataType>bit|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="38" parent="19" name="category_id">
+    <column id="74" parent="25" name="category_id">
       <Position>6</Position>
       <DataType>bigint|0s</DataType>
     </column>
-    <column id="39" parent="19" name="thread_content">
+    <column id="75" parent="25" name="thread_content">
       <Position>7</Position>
       <DataType>varchar(255 char)|0s</DataType>
     </column>
-    <index id="40" parent="19" name="PK__thread__7411E2F04391A47A">
+    <index id="76" parent="25" name="PK__thread__7411E2F04391A47A">
       <Position>1</Position>
       <NameSurrogate>1</NameSurrogate>
       <ColNames>thread_id</ColNames>
       <Clustering>1</Clustering>
       <Unique>1</Unique>
     </index>
-    <key id="41" parent="19" name="PK__thread__7411E2F04391A47A">
+    <key id="77" parent="25" name="PK__thread__7411E2F04391A47A">
       <ObjectId>1301579675</ObjectId>
       <NameSurrogate>1</NameSurrogate>
       <CreatedTimestamp>2020-06-12.21:32:17.533</CreatedTimestamp>
@@ -189,5 +413,53 @@
       <UnderlyingIndexName>PK__thread__7411E2F04391A47A</UnderlyingIndexName>
       <Primary>1</Primary>
     </key>
+    <column id="78" parent="26" name="users_id">
+      <Position>1</Position>
+      <DataType>bigint|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="79" parent="26" name="roles_id">
+      <Position>2</Position>
+      <DataType>bigint|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="80" parent="26" name="PK__user_rol__F3E6EB075BB3A199">
+      <Position>1</Position>
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>users_id
+roles_id</ColNames>
+      <Clustering>1</Clustering>
+      <Unique>1</Unique>
+    </index>
+    <key id="81" parent="26" name="PK__user_rol__F3E6EB075BB3A199">
+      <ObjectId>1685581043</ObjectId>
+      <NameSurrogate>1</NameSurrogate>
+      <CreatedTimestamp>2020-06-18.13:39:18.497</CreatedTimestamp>
+      <ModifiedTimestamp>2020-06-18.13:39:18.497</ModifiedTimestamp>
+      <ColNames>users_id
+roles_id</ColNames>
+      <UnderlyingIndexName>PK__user_rol__F3E6EB075BB3A199</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="82" parent="26" name="FKdbv8tdyltxa1qjmfnj9oboxse">
+      <ObjectId>1765581328</ObjectId>
+      <CreatedTimestamp>2020-06-18.13:50:54.353</CreatedTimestamp>
+      <ModifiedTimestamp>2020-06-18.13:50:54.353</ModifiedTimestamp>
+      <ColNames>roles_id</ColNames>
+      <RefTableId>1733581214</RefTableId>
+      <RefTableName>roles</RefTableName>
+      <RefKeyName>PK__roles__3213E83FBB816881</RefKeyName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <foreign-key id="83" parent="26" name="FKj9553ass9uctjrmh0gkqsmv0d">
+      <ObjectId>1717581157</ObjectId>
+      <CreatedTimestamp>2020-06-18.13:39:18.647</CreatedTimestamp>
+      <ModifiedTimestamp>2020-06-18.13:39:18.647</ModifiedTimestamp>
+      <ColNames>roles_id</ColNames>
+      <RefTableId>1541580530</RefTableId>
+      <RefTableName>role</RefTableName>
+      <RefKeyName>PK__role__3213E83FA10631EF</RefKeyName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
   </database-model>
 </dataSource>

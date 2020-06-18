@@ -93,8 +93,6 @@ public class ThreadController {
             categoryModels.add(categoryModel);
         }
 
-
-
         ThreadModel threadModel =new ThreadModel();
         threadModel.setCurrentCategory(thread.getCategoryId());
         threadModel.setCategoryModels(categoryModels);
@@ -129,4 +127,9 @@ public class ThreadController {
             return "home/index";
     }
 
+    @RequestMapping("/report/{threadId}")
+    public String reportThread (@PathVariable(value = "threadId") Long id, Model model){
+        threadService.deleteThread(id);
+        return indexController.getAllCategories(model);
+    }
 }

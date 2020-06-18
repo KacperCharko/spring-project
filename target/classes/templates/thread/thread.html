@@ -30,6 +30,16 @@
     <div class="category" th:each="msg : ${msgs}">
         <div class="catname"><span th:text="${msg.getAuthorId()}"> Author </span></div>
         <div class="catdesc"><span th:text="${msg.getMessageContent()}"> Msg </span></div>
+        <a th:href="@{/thread/report/{threadId} (threadId=${threadId})}" >
+
+            <button class="report"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
+                edytuj </button>
+        </a>
+        <a th:href="@{/thread/report/{threadId} (threadId=${threadId})}" >
+
+            <button class="report"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
+                Zgłoś </button>
+        </a>
     </div>
     <div class="catwrap">
         <div class="form">
@@ -40,6 +50,7 @@
                     <label for="topic">Treść wiadomości</label>
                     <input type="text" id="topic" name="topic"  th:field="*{messageContent}" />
                 </div>
+
                 <button type=submit class="btn"><i class="fa fa-check"></i> dodaj komentarz</button>
             </form>
         </div>
